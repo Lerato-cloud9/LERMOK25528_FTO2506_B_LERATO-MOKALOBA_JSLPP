@@ -5,6 +5,7 @@ import { createTaskElement } from "./taskElement.js";
  */
 function getTaskContainerByStatus(status) {
   const column = document.querySelector(`.column-div[data-status="${status}"]`);
+  console.log("Looking for container with status:", status, "→ found:", column);
   return column ? column.querySelector(".tasks-container") : null;
 }
 
@@ -22,6 +23,7 @@ export function clearExistingTasks() {
  */
 export function renderTasks(tasks) {
   tasks.forEach((task) => {
+    console.log("Rendering task:", task);
     const container = getTaskContainerByStatus(task.status);
     if (container) {
       const taskElement = createTaskElement(task);

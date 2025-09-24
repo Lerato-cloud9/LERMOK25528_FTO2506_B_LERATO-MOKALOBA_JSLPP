@@ -8,6 +8,7 @@ import {
 
 function initTaskBoard() {
   const tasks = loadTasksFromStorage();
+  console.log("Tasks from storage:", tasks); 
   clearExistingTasks();
   renderTasks(tasks);
   fetchTasksFromAPI();
