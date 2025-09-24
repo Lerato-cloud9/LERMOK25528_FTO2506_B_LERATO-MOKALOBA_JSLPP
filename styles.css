@@ -135,7 +135,7 @@ header {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  flex-wrap: nowrap
+  flex-wrap: nowrap /* prevent columns from stacking */
 }
 
 .column-div {
