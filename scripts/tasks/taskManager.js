@@ -39,7 +39,8 @@ export async function fetchTasksFromAPI() {
     if (statusMessage) statusMessage.textContent = "⏳ Loading tasks..."; //show loading message
     const res = await fetch("https://jsl-kanban-api.vercel.app/");        //Fetch tasks from API
     if (!res.ok) throw new Error("Failed to fetch tasks");                //Check if response is OK
-
     const data = await res.json();                                        //Parse response JSON to convert responce to object
+
+    saveTasksToStorage(data);                                             // Save to localStorage as backup
   }
 }
