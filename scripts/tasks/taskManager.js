@@ -42,5 +42,6 @@ export async function fetchTasksFromAPI() {
     const data = await res.json();                                        //Parse response JSON to convert responce to object
 
     saveTasksToStorage(data);                                             // Save to localStorage as backup
+    clearExistingTasks();                                                 // Clear existing tasks in UI
   }
 }
