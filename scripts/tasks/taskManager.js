@@ -29,3 +29,6 @@ export function addNewTask() {
   resetForm();
   overlay.close();
 }
+
+// DOM element for messages
+const statusMessage = document.getElementById("status-message");
