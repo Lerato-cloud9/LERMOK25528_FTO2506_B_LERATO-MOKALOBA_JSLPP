@@ -32,3 +32,7 @@ export function addNewTask() {
 
 // DOM element for messages
 const statusMessage = document.getElementById("status-message");
+
+export async function fetchTasksFromAPI() {
+  
+}
