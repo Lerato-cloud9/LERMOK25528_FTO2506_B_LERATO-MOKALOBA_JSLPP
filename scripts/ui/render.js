@@ -4,6 +4,7 @@ import { createTaskElement } from "./taskElement.js";
  * Finds the task container element based on task status.
  */
 function getTaskContainerByStatus(status) {
+  status = status.toLowerCase().trim();  // Normalize status to lowercase and remove extra spaces
   const column = document.querySelector(`.column-div[data-status="${status}"]`);
   return column ? column.querySelector(".tasks-container") : null;
 }
