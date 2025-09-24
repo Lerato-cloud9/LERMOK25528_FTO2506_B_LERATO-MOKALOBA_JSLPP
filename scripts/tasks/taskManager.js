@@ -43,5 +43,6 @@ export async function fetchTasksFromAPI() {
 
     saveTasksToStorage(data);                                             // Save to localStorage as backup
     clearExistingTasks();                                                 // Clear existing tasks in UI
+    renderTasks(data);                                                    // Render tasks in columns
   }
 }
