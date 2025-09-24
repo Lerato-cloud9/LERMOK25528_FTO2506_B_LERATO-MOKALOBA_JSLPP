@@ -30,12 +30,13 @@ export function addNewTask() {
   overlay.close();
 }
 
-// DOM element for messages
+// DOM element for messages and fetching the API
 const statusMessage = document.getElementById("status-message");
 
 export async function fetchTasksFromAPI() {
  
   try {
     if (statusMessage) statusMessage.textContent = "⏳ Loading tasks..."; //show loading message
+    const res = await fetch("https://jsl-kanban-api.vercel.app/");        //Fetch tasks from API
   }
 }
