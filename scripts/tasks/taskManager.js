@@ -45,4 +45,8 @@ export async function fetchTasksFromAPI() {
     clearExistingTasks();                                                 // Clear existing tasks in UI
     renderTasks(data);                                                    // Render tasks in columns
   }
+
+  catch (error) {
+    if (statusMessage) statusMessage.textContent = "❌ Error: " + error.message;  // Display error message if fetch fails
+  }
 }
