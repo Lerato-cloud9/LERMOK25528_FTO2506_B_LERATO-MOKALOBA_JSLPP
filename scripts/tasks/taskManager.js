@@ -51,5 +51,6 @@ export async function fetchTasksFromAPI() {
     const fallbackTasks = loadTasksFromStorage();                                 // Load fallback tasks from localStorage in case of fail
 
     clearExistingTasks();
+    renderTasks(fallbackTasks);
   }
 }
