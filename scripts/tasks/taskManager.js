@@ -48,5 +48,6 @@ export async function fetchTasksFromAPI() {
 
   catch (error) {
     if (statusMessage) statusMessage.textContent = "❌ Error: " + error.message;  // Display error message if fetch fails
+    const fallbackTasks = loadTasksFromStorage();                                 // Load fallback tasks from localStorage in case of fail
   }
 }
