@@ -34,5 +34,8 @@ export function addNewTask() {
 const statusMessage = document.getElementById("status-message");
 
 export async function fetchTasksFromAPI() {
-  
+ 
+  try {
+    if (statusMessage) statusMessage.textContent = "⏳ Loading tasks..."; //show loading message
+  }
 }
