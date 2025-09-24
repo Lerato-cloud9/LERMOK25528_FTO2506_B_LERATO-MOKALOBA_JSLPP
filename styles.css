@@ -132,12 +132,10 @@ header {
 }
 
 .card-column-main {
-  display: grid;
-  grid-template-columns: repeat(
-    3,
-    minmax(0, 304px)
-  ); /* 3 columns with min size */
-  gap: 8px; /* Space between columns */
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: nowrap
 }
 
 .column-div {
