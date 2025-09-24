@@ -53,4 +53,8 @@ export async function fetchTasksFromAPI() {
     clearExistingTasks();
     renderTasks(fallbackTasks);
   }
+
+  finally {
+    if (statusMessage) setTimeout(() => (statusMessage.textContent = ""), 3000);  // Clears status message after 3 seconds
+  }
 }
