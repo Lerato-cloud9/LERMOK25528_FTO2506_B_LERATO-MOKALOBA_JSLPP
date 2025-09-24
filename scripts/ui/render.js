@@ -31,4 +31,9 @@ export function renderTasks(tasks) {
      
     }
   });
+
+  // Update column headers with task counts
+  document.querySelector('[data-status="todo"] .columnHeader').textContent = `TODO (${counts.todo})`;
+  document.querySelector('[data-status="doing"] .columnHeader').textContent = `DOING (${counts.doing})`;
+  document.querySelector('[data-status="done"] .columnHeader').textContent = `DONE (${counts.done})`;
 }
