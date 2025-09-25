@@ -75,20 +75,3 @@ editForm.closest("dialog").close();                  // Close the modal once edi
 
 // --- Delete handler ---
 
-const deleteBtn = document.getElementById("delete-task-btn");
-
-deleteBtn.addEventListener("click", () => {             // A click event listener to delete
-  if (editingTaskId === null) return;                   // If no task is being edited, do nothing
-
-  const confirmDelete = confirm("Are you sure you want to delete this task?");  // Ask the user for confirmation before deleting
-  if (!confirmDelete) return;                                                   // If the user cancels, stop here
-
-  let tasks = loadTasksFromStorage();                                          // Load all tasks from local storage
-  tasks = tasks.filter((t) => t.id !== editingTaskId);                         // Remove the task that matches the currently edited task ID
-
-  saveTasksToStorage(tasks);                                                   // Save the updated list of tasks back to local storage
-  renderTasks(tasks);                                                          // Re-render the task board to show the updated tasks
-
-  editingTaskId = null;                                                        // Reset editingTaskId since no task is being edited anymore
-  document.getElementById("task-modal").close();                                // Close the modal after deletion
-});
