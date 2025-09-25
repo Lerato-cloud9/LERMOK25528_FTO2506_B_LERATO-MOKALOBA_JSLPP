@@ -82,4 +82,6 @@ deleteBtn.addEventListener("click", () => {             // A click event listene
 
   const confirmDelete = confirm("Are you sure you want to delete this task?");  // Ask the user for confirmation before deleting
   if (!confirmDelete) return;                                                   // If the user cancels, stop here
+
+  let tasks = loadTasksFromStorage();                                          // Load all tasks from local storage
 });
