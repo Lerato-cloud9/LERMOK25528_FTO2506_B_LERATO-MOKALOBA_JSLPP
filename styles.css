@@ -125,6 +125,21 @@ h4 {
     display: inline-block;
   }
 
+  #sidebar-show-btn {
+  display: none; /* hidden until sidebar is closed */
+  background: var(--primary-btn-color);
+  color: #fff;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  height: 48px;
+  width: 276px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px; /* adjust to match the Hide button spacing */
+}
+
+  
 /* ===============
    Main Layout
 ================ */
