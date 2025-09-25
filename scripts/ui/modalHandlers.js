@@ -79,4 +79,6 @@ const deleteBtn = document.getElementById("delete-task-btn");
 
 deleteBtn.addEventListener("click", () => {             // A click event listener to delete
   if (editingTaskId === null) return;                   // If no task is being edited, do nothing
+
+  const confirmDelete = confirm("Are you sure you want to delete this task?");  // Ask the user for confirmation before deleting
 });
