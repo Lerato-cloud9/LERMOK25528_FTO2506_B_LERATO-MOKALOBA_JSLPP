@@ -55,7 +55,7 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
   if (t.id === editingTaskId) {                       // Replace task properties with updated values from form inputs
   return {
   ...t,
- title: editForm["title"].value,                      // update title
+  title: editForm["title"].value,                      // update title
   description: editForm["description"].value,        // update description
   status: editForm["status"].value                   // update status
      };
