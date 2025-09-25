@@ -54,5 +54,10 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
   const updatedTasks = tasks.map(t => {               // Go over tasks to update only the one being edited
   if (t.id === editingTaskId) {                       // Replace task properties with updated values from form inputs
   return {
-      
+  ...t,
+ title: editForm["title"].value,                     // update title
+  description: editForm["description"].value,       // update description
+  status: editForm["status"].value                 // update status
+      };
+    }
 });
