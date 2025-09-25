@@ -72,3 +72,7 @@ editingTaskId = null;                                // Reset editing state afte
   
 editForm.closest("dialog").close();                  // Close the modal once editing is done
 });
+
+// --- Delete handler ---
+
+const deleteBtn = document.getElementById("delete-task-btn");
