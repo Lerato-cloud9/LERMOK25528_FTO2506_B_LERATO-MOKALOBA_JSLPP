@@ -20,13 +20,21 @@ document.addEventListener("DOMContentLoaded", initTaskBoard);
 
 //toggle functionality to hide/show sidebar with icon update
 
-const sidebar = document.getElementById("side-bar-div");          // Get the sidebar element
-const toggleBtn = document.getElementById("sidebar-toggle-btn"); // Get the toggle button element
+// Get sidebar and both buttons
+const sidebar = document.getElementById("side-bar-div");          
+const hideBtn = document.getElementById("sidebar-toggle-btn"); // Hide Sidebar button
+const showBtn = document.getElementById("sidebar-show-btn");   // Show Sidebar button (👀)
 
-// A click listener to toggle the sidebar visibility
-toggleBtn.addEventListener("click", () => {
-sidebar.classList.toggle("hidden");                            // Toggle the 'hidden' class on sidebar
+// Hide sidebar when Hide button is clicked
+hideBtn.addEventListener("click", () => {
+  sidebar.classList.add("hidden");   // slide sidebar away
+  hideBtn.style.display = "none";    // hide "Hide Sidebar" button
+  showBtn.style.display = "block";   // show 👀 "Show Sidebar" button
+});
 
-  // Update the toggle button icon depending on sidebar state
-    toggleBtn.textContent = sidebar.classList.contains("hidden") ? "Show Sidebar" : "Hide Sidebar";
+// Show sidebar when Show button is clicked
+showBtn.addEventListener("click", () => {
+  sidebar.classList.remove("hidden"); // bring sidebar back
+  showBtn.style.display = "none";     // hide 👀 button
+  hideBtn.style.display = "block";    // show "Hide Sidebar" button again
 });
