@@ -49,4 +49,5 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
   e.preventDefault();                                  // Prevent default page refresh
 
   if (editingTaskId === null) return;                 // Exit if no task is being edited
+  const tasks = loadTasksFromStorage();               // Load current tasks from localStorage
 });
