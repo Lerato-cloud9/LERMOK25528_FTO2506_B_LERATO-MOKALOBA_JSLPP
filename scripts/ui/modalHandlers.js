@@ -65,4 +65,8 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
 
 saveTasksToStorage(updatedTasks);                    // Save the updated tasks back to localStorage
 renderTasks(updatedTasks);                           // Re-render the board to reflect changes immediately       
-editingTaskId = null;                                // Reset editing state after save              
+editingTaskId = null;                                // Reset editing state after save      
+
+  
+editForm.closest("dialog").close();                  // Close the modal once editing is done
+});
