@@ -44,3 +44,7 @@ export function openTaskModal(task) {
 //Adding a submit handler for editing tasks
 
 const editForm = document.getElementById("task-form");  // Get the task form element for editing
+
+editForm.addEventListener("submit", (e) => {            // Add submit event listener to handle task edits
+  e.preventDefault();                                  // Prevent default page refresh
+});
