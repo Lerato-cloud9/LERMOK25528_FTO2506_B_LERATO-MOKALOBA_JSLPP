@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", initTaskBoard);
 
 //toggle functionality to hide/show sidebar with icon update
 
-const sidebar = document.getElementById("side-bar-div"); // Get the sidebar element
+const sidebar = document.getElementById("side-bar-div");          // Get the sidebar element
 const toggleBtn = document.getElementById("sidebar-toggle-btn"); // Get the toggle button element
 
 // A click listener to toggle the sidebar visibility
 toggleBtn.addEventListener("click", () => {
-sidebar.classList.toggle("hidden"); // Toggle the 'hidden' class on sidebar
+sidebar.classList.toggle("hidden");                            // Toggle the 'hidden' class on sidebar
 
 });
