@@ -76,3 +76,7 @@ editForm.closest("dialog").close();                  // Close the modal once edi
 // --- Delete handler ---
 
 const deleteBtn = document.getElementById("delete-task-btn");
+
+deleteBtn.addEventListener("click", () => {             // A click event listener to delete
+  if (editingTaskId === null) return;                   // If no task is being edited, do nothing
+});
