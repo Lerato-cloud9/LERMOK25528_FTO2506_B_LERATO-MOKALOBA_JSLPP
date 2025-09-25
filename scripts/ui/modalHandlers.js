@@ -52,6 +52,7 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
   const tasks = loadTasksFromStorage();               // Load current tasks from localStorage
 
   const updatedTasks = tasks.map(t => {               // Go over tasks to update only the one being edited
-    if (t.id === editingTaskId)
+  if (t.id === editingTaskId) {                       // Replace task properties with updated values from form inputs
+  return {
       
 });
