@@ -81,4 +81,5 @@ deleteBtn.addEventListener("click", () => {             // A click event listene
   if (editingTaskId === null) return;                   // If no task is being edited, do nothing
 
   const confirmDelete = confirm("Are you sure you want to delete this task?");  // Ask the user for confirmation before deleting
+  if (!confirmDelete) return;                                                   // If the user cancels, stop here
 });
