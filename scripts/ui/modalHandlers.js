@@ -1,5 +1,7 @@
 import { addNewTask } from "../tasks/taskManager.js";
 
+let editingTaskId = null; // Tracks which task is being edited
+
 export function setupModalCloseHandler() {
   const modal = document.getElementById("task-modal");
   const closeBtn = document.getElementById("close-modal-btn");
