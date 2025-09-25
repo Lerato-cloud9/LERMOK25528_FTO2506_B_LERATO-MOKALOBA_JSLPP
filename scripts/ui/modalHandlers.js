@@ -1,4 +1,6 @@
 import { addNewTask } from "../tasks/taskManager.js";
+import { loadTasksFromStorage, saveTasksToStorage } from "../utils/localStorage.js";
+import { renderTasks } from "./render.js";
 
 let editingTaskId = null; // Tracks which task is being edited
 
