@@ -131,6 +131,15 @@ header {
   box-sizing: border-box;
 }
 
+#task-board {
+  display: none; /* hidden until tasks are loaded */
+}
+#loading-message {
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
 .card-column-main {
   display: flex;
   flex-direction: row;
