@@ -40,3 +40,7 @@ export function openTaskModal(task) {
   document.getElementById("task-status").value = task.status;
   modal.showModal();
 }
+
+//Adding a submit handler for editing tasks
+
+const editForm = document.getElementById("task-form");  // Get the task form element for editing
