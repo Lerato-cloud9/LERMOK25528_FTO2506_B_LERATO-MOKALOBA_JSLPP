@@ -63,4 +63,7 @@ export async function fetchTasksFromAPI() {
 
 export function createTaskElement(task) {
   const div = document.createElement("div");
+
+   // Add class for styling task cards
+  div.classList.add("task-div");
 }
