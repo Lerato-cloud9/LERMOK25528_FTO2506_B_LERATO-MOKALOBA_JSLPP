@@ -85,4 +85,7 @@ deleteBtn.addEventListener("click", () => {             // A click event listene
 
   let tasks = loadTasksFromStorage();                                          // Load all tasks from local storage
   tasks = tasks.filter((t) => t.id !== editingTaskId);                         // Remove the task that matches the currently edited task ID
+
+  saveTasksToStorage(tasks);                                                   // Save the updated list of tasks back to local storage
+  renderTasks(tasks);                                                          // Re-render the task board to show the updated tasks
 });
