@@ -64,3 +64,4 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
 });
 
 saveTasksToStorage(updatedTasks);                    // Save the updated tasks back to localStorage
+renderTasks(updatedTasks);                           // Re-render the board to reflect changes immediately                      
