@@ -47,4 +47,6 @@ const editForm = document.getElementById("task-form");  // Get the task form ele
 
 editForm.addEventListener("submit", (e) => {            // Add submit event listener to handle task edits
   e.preventDefault();                                  // Prevent default page refresh
+
+  if (editingTaskId === null) return;                 // Exit if no task is being edited
 });
