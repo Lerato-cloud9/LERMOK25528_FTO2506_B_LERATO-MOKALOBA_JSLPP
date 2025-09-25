@@ -88,4 +88,7 @@ deleteBtn.addEventListener("click", () => {             // A click event listene
 
   saveTasksToStorage(tasks);                                                   // Save the updated list of tasks back to local storage
   renderTasks(tasks);                                                          // Re-render the task board to show the updated tasks
+
+  editingTaskId = null;                                                        // Reset editingTaskId since no task is being edited anymore
+  document.getElementById("task-modal").close();                                // Close the modal after deletion
 });
