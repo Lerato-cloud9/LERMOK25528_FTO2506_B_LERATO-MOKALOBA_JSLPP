@@ -16,7 +16,6 @@ export function clearExistingTasks() {
   document.querySelectorAll(".tasks-container").forEach((container) => {
     container.innerHTML = "";
 
-    const counts = { todo: 0, doing: 0, done: 0 };
   });
 }
 
@@ -26,7 +25,7 @@ export function clearExistingTasks() {
 export function renderTasks(tasks) {
   clearExistingTasks();
 
-  const counts = { todo: 0, doing: 0, done: 0 };
+  const counts = { todo: 0, doing: 0, done: 0 };// counts number of tasks in each column
 
   tasks.forEach((task) => {
     const container = getTaskContainerByStatus(task.status);
