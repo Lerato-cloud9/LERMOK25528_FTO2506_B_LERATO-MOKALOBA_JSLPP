@@ -50,4 +50,8 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
 
   if (editingTaskId === null) return;                 // Exit if no task is being edited
   const tasks = loadTasksFromStorage();               // Load current tasks from localStorage
+
+  const updatedTasks = tasks.map(t => {               // Go over tasks to update only the one being edited
+    if (t.id === editingTaskId)
+      
 });
