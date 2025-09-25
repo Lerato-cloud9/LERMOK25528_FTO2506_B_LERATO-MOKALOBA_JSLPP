@@ -69,4 +69,8 @@ export function createTaskElement(task) {
 
   // Set the visible task title
   div.textContent = task.title;
+
+  // Adds click handler to open the edit modal for a specific task
+  // openEditModal is imported from modalHandlers.js and takes task.id
+  div.addEventListener("click", () => openEditModal(task.id));
 }
