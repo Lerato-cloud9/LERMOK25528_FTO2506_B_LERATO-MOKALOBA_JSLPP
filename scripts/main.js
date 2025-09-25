@@ -17,3 +17,8 @@ function initTaskBoard() {
 }
 
 document.addEventListener("DOMContentLoaded", initTaskBoard);
+
+//toggle functionality to hide/show sidebar with icon update
+
+const sidebar = document.getElementById("side-bar-div"); // Get the sidebar element
+const toggleBtn = document.getElementById("sidebar-toggle-btn"); // Get the toggle button element
