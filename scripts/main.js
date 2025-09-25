@@ -27,4 +27,10 @@ const toggleBtn = document.getElementById("sidebar-toggle-btn"); // Get the togg
 toggleBtn.addEventListener("click", () => {
 sidebar.classList.toggle("hidden");                            // Toggle the 'hidden' class on sidebar
 
+  // Update the toggle button icon depending on sidebar state
+  if (sidebar.classList.contains("hidden")) {
+    toggleBtn.textContent = "→";                              // Sidebar hidden → show icon to reopen
+  } else {
+    toggleBtn.textContent = "☰";                             // Sidebar visible → show 3 lines icon  
+  }
 });
