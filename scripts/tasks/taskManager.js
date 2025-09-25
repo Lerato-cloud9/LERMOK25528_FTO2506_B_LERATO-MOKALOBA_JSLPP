@@ -73,4 +73,7 @@ export function createTaskElement(task) {
   // Adds click handler to open the edit modal for a specific task
   // openEditModal is imported from modalHandlers.js and takes task.id
   div.addEventListener("click", () => openEditModal(task.id));
+
+   // Return the task DOM element to be appended to the board
+  return div;
 }
