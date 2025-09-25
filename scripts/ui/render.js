@@ -24,17 +24,24 @@ export function clearExistingTasks() {
  * Renders tasks to their appropriate columns.
  */
 export function renderTasks(tasks) {
+  clearExistingTasks();
+
+  const counts = { todo: 0, doing: 0, done: 0 };
+
   tasks.forEach((task) => {
     const container = getTaskContainerByStatus(task.status);
     if (container) {
       const taskElement = createTaskElement(task);
       container.appendChild(taskElement);
      
+      const key = task.status.toLowerCase().trim();
+      if (counts[key] !== undefined) counts[key]++;
     }
   });
 
   // Update column headers with task counts
-  document.querySelector('[data-status="todo"] .columnHeader').textContent = `TODO (${counts.todo})`;
-  document.querySelector('[data-status="doing"] .columnHeader').textContent = `DOING (${counts.doing})`;
-  document.querySelector('[data-status="done"] .columnHeader').textContent = `DONE (${counts.done})`;
+  ['todo', 'doing', 'done'].forEach(status => {
+    const header = document.querySelector(`[data-status="${status}"] .columnHeader`);
+    if (header) header.textContent = `${status.toUpperCase()} (${counts[status]})`;
+  });
 }
