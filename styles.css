@@ -90,6 +90,21 @@ h4 {
   overflow: hidden; /* Prevents overflowed text/icons from showing */
 }
 
+/* =================
+   Sidebar Toggle Button
+================ */
+#sidebar-toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: none; /* Only show when sidebar is hidden */
+}
+
+.side-bar.hidden + #sidebar-toggle-btn {
+  display: block; /* Show toggle button when sidebar is hidden */
+}
+
 /* ===============
    Main Layout
 ================ */
@@ -496,6 +511,28 @@ textarea {
     padding-right: 14px;
     padding-top: 0;
     padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .side-bar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .side-bar.hidden {
+    transform: translateX(-100%);
+  }
+
+  #sidebar-toggle-btn {
+    display: block;
+  }
+
+  #layout {
+    margin-left: 0; /* Layout takes full width when sidebar hidden */
   }
 }
 
