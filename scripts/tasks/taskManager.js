@@ -66,4 +66,7 @@ export function createTaskElement(task) {
 
    // Add class for styling task cards
   div.classList.add("task-div");
+
+  // Set the visible task title
+  div.textContent = task.title;
 }
