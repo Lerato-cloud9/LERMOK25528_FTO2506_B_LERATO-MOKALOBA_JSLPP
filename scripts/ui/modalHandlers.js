@@ -6,6 +6,7 @@ export function setupModalCloseHandler() {
   const modal = document.getElementById("task-modal");
   const closeBtn = document.getElementById("close-modal-btn");
   closeBtn.addEventListener("click", () => modal.close());
+  editingTaskId = null; // reset editing state
 }
 
 export function setupNewTaskModalHandler() {
