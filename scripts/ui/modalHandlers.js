@@ -62,3 +62,5 @@ editForm.addEventListener("submit", (e) => {            // Add submit event list
   }
     return t;                                        // leave other tasks unchanged
 });
+
+saveTasksToStorage(updatedTasks);                    // Save the updated tasks back to localStorage
