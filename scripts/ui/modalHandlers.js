@@ -33,6 +33,7 @@ export function setupNewTaskModalHandler() {
 }
 
 export function openTaskModal(task) {
+  editingTaskId = task.id; // track which task is being edited
   const modal = document.getElementById("task-modal");
   document.getElementById("task-title").value = task.title;
   document.getElementById("task-desc").value = task.description;
