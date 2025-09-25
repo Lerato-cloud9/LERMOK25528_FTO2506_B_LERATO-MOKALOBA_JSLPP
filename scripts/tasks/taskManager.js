@@ -58,3 +58,9 @@ export async function fetchTasksFromAPI() {
     if (statusMessage) setTimeout(() => (statusMessage.textContent = ""), 3000);  // Clears status message after 3 seconds
   }
 }
+
+//A Click handler for tasks 
+
+export function createTaskElement(task) {
+  const div = document.createElement("div");
+}
