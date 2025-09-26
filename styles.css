@@ -217,14 +217,18 @@ h4 {
   margin-top: auto;
   background: none;
   border: none;
+  border-radius: 0 100px 100px 0;
   color: var(--text-secondary);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 15px;
   height: 48px;
+  color: #f4f7fd;
+  width: 250px;
+  background-color: #635fc7;
   padding: 14px 0 15px 24px;
   transition: color 0.2s ease;
 }
