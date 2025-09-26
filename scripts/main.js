@@ -44,6 +44,9 @@ const themeToggle = document.querySelector(".btn-theme-toggle"); //Select the th
 if (localStorage.getItem("theme") === "dark") {     // Initialize theme based on user's previous preference stored in localStorage
   document.body.classList.add("dark");              // Apply dark mode class
   themeToggle.checked = true;                       // Set toggle to "on"
+    logo.src = "./assets/logo-dark.svg";            // use dark logo
+} else {
+  logo.src = "./assets/logo-light.svg";             // use light logo
 }
 
 themeToggle.addEventListener("change", () => {      // Listen for changes to the toggle switch
