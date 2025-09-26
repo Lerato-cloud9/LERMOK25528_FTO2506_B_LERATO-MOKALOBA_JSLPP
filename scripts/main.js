@@ -46,12 +46,10 @@ if (localStorage.getItem("theme") === "dark") {     // Initialize theme based on
   themeToggle.checked = true;                       // Set toggle to "on"
 }
 
-themeToggle.addEventListener("change", () => {       // Listen for changes to the toggle switch
-  document.body.classList.toggle("dark-theme");      // Toggle the 'dark' class on the <body> to switch theme
-  document.body.classList.toggle("light-theme");
-  localStorage.setItem(                               // Save the current theme preference to localStorage
-
+themeToggle.addEventListener("change", () => {      // Listen for changes to the toggle switch
+  document.body.classList.toggle("dark");           // Toggle the 'dark' class on the <body> to switch theme
+  localStorage.setItem(                             // Save the current theme preference to localStorage
     "theme",
-    document.body.classList.contains("dark-theme") ? "dark" : "light"
+    document.body.classList.contains("dark") ? "dark" : "light"
   );
-});
+}); 

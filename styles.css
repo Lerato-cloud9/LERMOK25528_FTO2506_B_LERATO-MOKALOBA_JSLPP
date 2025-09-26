@@ -142,55 +142,64 @@ h4 {
   gap: 12px;
 }
 
-    :root {             /*light theme*/
-      --background: #f4f6fb;
-      --text-color: #111827;
-      --sidebar-bg: #ffffff;
-      --sidebar-active: #6366f1;
-      --column-bg: #ffffff;
-      --card-bg: #ffffff;
-      --card-text: #1f2937;
-      --shadow: rgba(0,0,0,.25);
-    }
+/* Light Theme */
+:root {
+  --bg: #f8f9fc;
+  --text-color: #1a1a11;
+  --sidebar-bg: #ffffff;
+  --column-bg: #ffffff;
+  --card-bg: #fdfdfd;
+  --card-text: #333;
+  --shadow: rgba(0,0,0,.25);
+}
 
-.light-theme body {
-  background-color: var(--background);
+body.light-theme {
+  background-color: var(--bg);
   color: var(--text-color);
 }
 
-.light-theme .sidebar {
-  background-color: var(--sidebar-background);
+body.light-theme .sidebar {
+  background-color: var(--sidebar-bg);
 }
 
-.light-theme .task-card {
-  background-color: var(--card-background);
+body.light-theme .column-div {
+  background-color: var(--column-bg);
+}
+
+body.light-theme .task-card {
+  background-color: var(--card-bg);
   color: var(--card-text);
 }
 
-    :root {             /*dark theme*/
-      --bg: #18181b;
-      --text-color: #f9fafb;
-      --sidebar-bg: #1f2937;
-      --sidebar-active: #6366f1;
-      --column-bg: #2727a2;
-      --card-bg: #333;
-      --card-text: #e5e7eb;
-      --shadow: rgba(0,0,0,.25);
-    }
-
-.dark-theme body {
-  background-color: var(--background);
-  color: var(--text-color);
+/* Dark Theme */
+:root {
+  --bg-dark: #1e1e2f;
+  --text-color-dark: #f0f0f0;
+  --sidebar-bg-dark: #2b2b3c;
+  --column-bg-dark: #2b2b3c;
+  --card-bg-dark: #333344;
+  --card-text-dark: #e0e0e0;
+  --shadow-dark: rgba(0,0,0,.25);
 }
 
-.dark-theme .sidebar {
-  background-color: var(--sidebar-background);
+body.dark-theme {
+  background-color: var(--bg-dark);
+  color: var(--text-color-dark);
 }
 
-.dark-theme .task-card {
-  background-color: var(--card-background);
-  color: var(--card-text);
+body.dark-theme .sidebar {
+  background-color: var(--sidebar-bg-dark);
 }
+
+body.dark-theme .column-div {
+  background-color: var(--column-bg-dark);
+}
+
+body.dark-theme .task-card {
+  background-color: var(--card-bg-dark);
+  color: var(--card-text-dark);
+}
+
 /* Toolbar container */
     .toolbar {
       margin-top: 400px;
