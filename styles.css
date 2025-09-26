@@ -142,6 +142,55 @@ h4 {
   gap: 12px;
 }
 
+    :root {
+      --bg: #1e2630;
+      --tool: #6a6bd4; /* purple bar */
+      --btn: #ffffff;
+      --shadow: rgba(0,0,0,.25);
+    }
+
+/* Toolbar container */
+    .toolbar {
+      margin-top: 400px;
+      margin-left: 25px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      width: 210px;
+      height: 40px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: var(--tool);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
+.toolbar .btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+/* Icon sizing */
+.toolbar .icon {
+  font-size: 18px;
+  display: inline-block;
+}
+
+/* Status dot styling */
+.btn-status .icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff; /* default status color */
+}
+
+/* Optional: dark mode adjustments */
+body.dark .btn-status .icon {
+  background: #396B5E; /* example color in dark mode */
+}
   
 /* ===============
    Main Layout
