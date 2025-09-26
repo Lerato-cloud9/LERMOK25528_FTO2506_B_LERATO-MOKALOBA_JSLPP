@@ -1,18 +1,45 @@
-/* ========================
-   Global & Root Variables
-======================== */
 * {
-  box-sizing: border-box; /* Ensures padding and border are included in total element size */
+  box-sizing: border-box;
 }
 
+/* Light Theme Variables (Default) */
 :root {
-  --primary-color: #ffffff;
-  --secondary-color: #f4f7fd;
-  --primary-font-color: #000000;
-  --secondary-font-color: #828fa3;
+  --bg-primary: #f4f7fd;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e4ebfa;
+  --text-primary: #000112;
+  --text-secondary: #828fa3;
+  --border-color: #e4ebfa;
+  --task-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --modal-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #828fa3;
+  --shadow: rgba(54, 78, 126, 0.1015);
+  --sidebar-width: 276px;
   --primary-btn-color: #635fc7;
-  --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015); /* Subtle shadow for card depth */
-  --sidebar-width: 300px; /* Sidebar fixed width */
+  --primary-btn-hover: #a8a4ff;
+  --red-primary: #ea5555;
+  --red-hover: #ff9898;
+  --cyan: #49c4e5;
+  --green: #67e2ae;
+  --purple: #8471f2;
+}
+
+/* Dark Theme Variables */
+body.dark {
+  --bg-primary: #20212c;
+  --bg-secondary: #2b2c37;
+  --bg-tertiary: #3e3f4e;
+  --text-primary: #ffffff;
+  --text-secondary: #828fa3;
+  --border-color: #3e3f4e;
+  --task-bg: #2b2c37;
+  --sidebar-bg: #2b2c37;
+  --modal-bg: #2b2c37;
+  --input-bg: #20212c;
+  --input-border: #3e3f4e;
+  --shadow: rgba(0, 0, 0, 0.25);
 }
 
 /* ================
@@ -25,9 +52,10 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  background-color: var(--secondary-color);
-  font-size: 1rem; /* Base font size for rem scaling */
-}
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;}
 
 /* ================
    Sidebar Layout
@@ -35,11 +63,15 @@ body {
 .side-bar {
   display: flex;
   flex-direction: column;
-  background-color: var(--primary-color);
-  border-right: 1px solid #e4ebfa; /* Light divider */
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
   width: var(--sidebar-width);
   height: 100vh;
-  transition: transform 0.3s ease; /* Slide in/out for toggle */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000; /* Slide in/out for toggle */
 }
 
 .side-bar.hidden {
@@ -59,11 +91,18 @@ body {
 .boards-nav-links-div {
   display: flex;
   flex-direction: column;
-  color: var(--primary-font-color);
+  color: var(--text-primary);
+  flex-grow: 1;
 }
 
 #headline-sidepanel {
-  padding: 0 12px 0 50px; /* Aligns section content from left and right */
+  padding: 0 12px 0 24px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  margin-bottom: 19px;
 }
 
 h4 {
@@ -82,156 +121,54 @@ h4 {
   border: none;
   border-radius: 0 100px 100px 0; /* Pill shape only on right side */
   height: 30px;
-  width: 245px;
+  width: calc(100% - 24px);
+  margin-left: 0;
   padding: 28px 12px 28px 50px;
   font-size: 0.9375rem;
   font-weight: bold;
   cursor: pointer;
-  overflow: hidden; /* Prevents overflowed text/icons from showing */
+  transition: background-color 0.2s ease; 
 }
 
 /* =================
-   Sidebar Toggle Button
+   Toolbar (Theme Toggle)
 ================ */
-/* Sidebar */
-.side-bar {
-  width: 276px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-  background-color: #fff;
-  height: 100vh;  /* full height */
-}
-
-.side-bar.hidden {
-  transform: translateX(-100%);
-}
-
-/* Hide Sidebar button inside sidebar */
-#sidebar-toggle-btn {
-  margin-top: auto;  /* pushes button to bottom */
-  background-color: var(--primary-btn-color);
-  color: white;
-  border: none;
-  height: 40px;
-  width: 245px;
-  padding: 12px 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 0 100px 100px 0;
+.toolbar {
+  margin: auto 24px 16px 24px;
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-/* Show Sidebar button outside sidebar, aligned with hidden sidebar bottom */
-#sidebar-show-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
+  justify-content: center;
+  gap: 24px;
   height: 48px;
-  width: 50px;
-  padding: 12px 16px;
-  background-color: var(--primary-btn-color);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 0 100px 100px 0;
-  display: none;       /* hidden initially */
-  align-items: center;
-  gap: 12px;
+  padding: 14px;
+  border-radius: 6px;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
-
-    :root {             /*light theme*/
-      --bg: #f8f9fc;
-      --text-color: #1a1a11;
-      --sidebar-bg: #ffffff;
-      --column-bg: #ffffff;
-      --card-bg: #fdfdfd;
-      --card-text: #333;
-      --shadow: rgba(0,0,0,.25);
-    }
-
-.light-theme body {
-  background-color: var(--bg);
-  color: var(--text-color);
-}
-
-.light-theme .sidebar {
-  background-color: var(--sidebar-bg);
-}
-
-.light-theme .task-card {
-  background-color: var(--card-bg);
-  color: var(--card-text);
-}
-
-    :root {             /*dark theme*/
-      --bg: #1e1e2f;
-      --text-color: #f0f0f0;
-      --sidebar-bg: #2b2b3c;
-      --column-bg: #2b2b3c;
-      --card-bg: #333344;
-      --card-text: #e0e0e0;
-      --shadow: rgba(0,0,0,.25);
-    }
-
-.dark-theme body {
-  background-color: var(--bg);
-  color: var(--text-color);
-}
-
-.dark-theme .sidebar {
-  background-color: var(--sidebar-bg);
-}
-
-.dark-theme .task-card {
-  background-color: var(--card-bg);
-  color: var(--card-text);
-}
-/* Toolbar container */
-    .toolbar {
-      margin-top: 400px;
-      margin-left: 25px;
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      width: 210px;
-      height: 40px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: var(--tool);
-      box-shadow: 0 6px 16px var(--shadow);
-    }
 
 .toolbar .btn {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: background 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
 }
 
-/* Icon sizing */
 .toolbar .icon {
   font-size: 18px;
   display: inline-block;
 }
 
-/* Status dot styling */
 .btn-status .icon {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #fff; /* default status color */
+  background-color: var(--green);
 }
 
-/* Optional: dark mode adjustments */
-body.dark .btn-status .icon {
-  background: #396B5E; /* example color in dark mode */
-}
-  
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -251,8 +188,8 @@ body.dark .btn-status .icon {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  border-radius: 20px;
+  background-color: var(--primary-btn-color);
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -260,31 +197,84 @@ body.dark .btn-status .icon {
 .theme-switch .slider:before {
   content: "";
   position: absolute;
-  height: 16px;
-  width: 16px;
-  left: 2px;
-  bottom: 2px;
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
   border-radius: 50%;
   transition: 0.3s;
-}
-
-.theme-switch input:checked + .slider {
-  background-color: #396B5E; /* dark mode active color */
 }
 
 .theme-switch input:checked + .slider:before {
   transform: translateX(20px);
 }
 
+/* =================
+   Sidebar Toggle Button
+================ */
+#sidebar-toggle-btn {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 48px;
+  padding: 14px 0 15px 24px;
+  transition: color 0.2s ease;
+}
+
+#sidebar-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+#sidebar-show-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  height: 48px;
+  width: 56px;
+  background-color: var(--primary-btn-color);
+  color: white;
+  border: none;
+  border-radius: 0 100px 100px 0;
+  font-weight: 700;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: background-color 0.2s ease;
+}
+
+#sidebar-show-btn:hover {
+  background-color: var(--primary-btn-hover);
+}
 /* ===============
    Main Layout
 ================ */
 #layout {
-  flex: 1; /* Fills remaining space beside sidebar */
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  width: 100%;
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  overflow-x: hidden;
+  width: calc(100% - var(--sidebar-width));
+  transition: margin-left 0.3s ease, width 0.3s ease;
 }
+
+.layout-full-width {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.sidebar-show-visible {
+  display: flex !important;
+}
+
 
 /* ===============
    Header Section
@@ -293,24 +283,51 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--primary-color);
-  color: var(--primary-font-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   height: 96px;
-  padding: 0 35px 0 30px;
-  border-bottom: 1px solid #e4ebfa;
+  padding: 20px 24px 28px;
+  border-bottom: 1px solid var(--border-color);
   width: 100%;
-  font-size: 1.875rem;
-  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .header-name-div {
   display: flex;
   align-items: center;
+  gap: 16px;
 }
 
 .logo-mobile {
-  display: none; /* Hidden on desktop; shown on smaller screens */
+  display: none;
+  width: 24px;
+  height: 24px;
 }
+
+h2,
+.header-board-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+#add-new-task-btn {
+  background-color: var(--primary-btn-color);
+  color: white;
+  border-radius: 24px;
+  border: 0;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#add-new-task-btn:hover {
+  background-color: var(--primary-btn-hover);
+}
+
 
 /* ===============
    Board Columns
@@ -378,24 +395,32 @@ header {
 .tasks-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
 }
 
 .task-div {
   display: flex;
   align-items: center;
-  padding-left: 15px;
+  padding: 23px 16px;
   width: 100%;
-  height: 60px;
-  background-color: var(--primary-color);
-  color: var(--primary-font-color);
-  border-radius: 12px;
-  box-shadow: var(--primary-box-shadow);
-  cursor: pointer; /* Indicate it's clickable */
-  margin-bottom: 20px;
-  font-size: 0.9375rem;
-  font-weight: bold;
+  min-height: 88px;
+  background-color: var(--task-bg);
+  color: var(--text-primary);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px var(--shadow);
+  cursor: pointer;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+  transition: all 0.2s ease;;
 }
 
+.task-div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 25px rgba(54, 78, 126, 0.25);
+}
 /* ===============
    Headings
 ================ */
@@ -407,173 +432,165 @@ h2 {
 /* ===============
    Modal Styles
 ================ */
-/* Remove default dialog styles */
 dialog {
   position: fixed;
-
   border: none;
   padding: 0;
   margin: 0;
   background: none;
+  border-radius: 6px;
 }
 
-/* Style the modal box */
-#task-modal::backdrop {
-  background: rgba(0, 0, 0, 0.3);
+#task-modal::backdrop,
+.modal-overlay::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-#task-modal {
-  top: 40%;
+#task-modal,
+.modal-window {
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
-  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
   width: 90%;
-  max-width: 600px;
-  padding: 24px;
-  background-color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  /*font-family: "Plus Jakarta Sans", sans-serif;*/
+  max-width: 480px;
+  padding: 32px;
+  background-color: var(--modal-bg);
+  color: var(--text-primary);
+  box-shadow: 0px 10px 20px rgba(54, 78, 126, 0.25);
+  transition: background-color 0.3s ease;
 }
 
-/* Header */
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 }
 
-.modal-header h3 {
+.modal-header h3,
+.modal-title {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .close-btn {
   background: none;
   border: none;
-  font-size: 2.5rem;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  color: #ea5555;
-  transition: transform 0.2s ease-in-out, font-weight 0.2s ease-in-out;
-  transition-delay: 0.1s; /* Delay before scaling */
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  padding: 0;
 }
 
 .close-btn:hover {
-  transform: scale(1.15);
-  font-weight: 600;
-}
-
-.close-btn:focus {
-  outline: none;
+  color: var(--text-primary);
 }
 
 /* Form elements */
-form label {
+form label,
+.label-modal-window {
   display: block;
-  font-weight: 600;
-  font-size: 0.75rem;
-  margin-top: 12px;
-  margin-bottom: 4px;
-  color: #828fa3;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
 }
 
 form input,
 form textarea,
-form select {
+form select,
+.modal-input,
+#task-title,
+#task-desc,
+#desc-input,
+#select-status,
+#task-status {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #828fa3;
+  padding: 8px 16px;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-family: inherit;
-  font-size: 0.8125em;
-  resize: vertical;
-}
-
-form select {
-  appearance: none; /* Remove native arrow */
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%23828FA3" stroke-width="3" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>')
-    no-repeat right 0.75rem center;
-
-  background-size: 1.4rem;
-  padding-right: 1rem;
-}
-
-#add-new-task-btn {
-  background-color: var(--primary-btn-color);
-  color: white;
-  border-radius: 30px;
-  border: 0;
-  font-size: 16px;
-  padding: 18px;
-  padding-left: 35px;
-  padding-right: 35px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-.delete-btn {
-  background-color: #e63946;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 16px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.delete-btn:hover {
-  background-color: #d62828;
-}
-
-/* New Task Modal Window */
-
-.modal-window {
-  /* border: 5px solid red; */
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  gap: 20px;
-  background-color: var(--primary-color);
+  font-size: 13px;
   font-weight: 500;
-  font-size: 14px;
-  border-radius: 10px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  transition: border-color 0.2s ease, background-color 0.3s ease;
+}
 
-  z-index: 3;
-  transition: all 0.3s ease-in;
+form input:focus,
+form textarea:focus,
+form select:focus,
+.modal-input:focus,
+#task-title:focus,
+#task-desc:focus,
+#desc-input:focus,
+#select-status:focus,
+#task-status:focus {
+  outline: none;
+  border-color: var(--primary-btn-color);
+}
+
+textarea,
+#desc-input {
+  resize: vertical;
+  min-height: 112px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+form select,
+#select-status,
+#task-status {
+  appearance: none;
+  background: var(--input-bg) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%23828FA3" stroke-width="3" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 0.75rem center;
+  background-size: 1.4rem;
+  padding-right: 2.5rem;
 }
 
 .submit-btn {
   background-color: var(--primary-btn-color);
   color: white;
-  border-radius: 30px;
+  border-radius: 20px;
   border: 0;
-  font-size: 16px;
-  padding: 14px;
-  padding-left: 35px;
-  padding-right: 35px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
   cursor: pointer;
-  flex-grow: 1; /* Allows the button to grow and fill the space */
-  margin: 5px 0; /* Optional: adds a margin between buttons */
+  width: 100%;
+  transition: background-color 0.2s ease;
 }
 
-textarea {
-  font-size: 16px;
-  color: black;
-  height: 90px;
-  padding: 10px;
-  border-radius: 4px;
-  resize: vertical;
+.submit-btn:hover {
+  background-color: var(--primary-btn-hover);
+}
+
+.delete-btn {
+  background-color: var(--red-primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: var(--red-hover);
+}
+
+/* Status Message */
+#status-message {
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin: 10px;
 }
 
 /* ========================
@@ -583,13 +600,18 @@ textarea {
 /******** Tablets ********/
 @media screen and (max-width: 1023px) {
   .side-bar {
-    display: none; /* Hide sidebar on tablets and smaller */
+    transform: translateX(-100%);
+    position: fixed;
+    z-index: 1000;
   }
 
-  .side-bar.show-sidebar {
-    display: flex !important;
-    position: fixed; /* Overlay on top of page */
-    height: auto;
+  .side-bar.open {
+    transform: translateX(0);
+  }
+
+  #layout {
+    margin-left: 0;
+    width: 100%;
   }
 
   #side-logo-div {
@@ -597,10 +619,11 @@ textarea {
   }
 
   .logo-mobile {
-    display: block;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    display: block !important;
+  }
+
+  #sidebar-show-btn {
+    display: flex;
   }
 
   body {
@@ -615,28 +638,28 @@ textarea {
   }
 
   .container {
-    padding: 0;
+    padding: 16px;
     width: 100%;
-    align-items: center; /* Center columns on smaller screens */
   }
 
   .card-column-main {
-    grid-template-columns: repeat(2, minmax(0, 360px));
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
   header {
     height: 64px;
-    padding: 0 10px 0 18px;
-    border: none;
+    padding: 0 16px;
   }
 
-  #header-board-name {
-    font-size: 1rem;
+  h2,
+  .header-board-name {
+    font-size: 20px;
   }
 
-  .task-div {
-    width: 100%;
+  #add-new-task-btn {
+    padding: 10px 18px;
+    font-size: 13px;
   }
 
   .columnHeader {
@@ -644,16 +667,12 @@ textarea {
   }
 
   .dot {
-    height: 8px;
-    width: 8px;
+    height: 12px;
+    width: 12px;
   }
 
   .column-head-div {
     gap: 8px;
-  }
-
-  .column-div {
-    width: 100%;
   }
 }
 
