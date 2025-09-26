@@ -142,13 +142,55 @@ h4 {
   gap: 12px;
 }
 
-    :root {
-      --bg: #1e2630;
-      --tool: #6a6bd4; /* purple bar */
-      --btn: #ffffff;
+    :root {             /*light theme*/
+      --background: #f4f6fb;
+      --text-color: #111827;
+      --sidebar-bg: #ffffff;
+      --sidebar-active: #6366f1;
+      --column-bg: #ffffff;
+      --card-bg: #ffffff;
+      --card-text: #1f2937;
       --shadow: rgba(0,0,0,.25);
     }
 
+.light-theme body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.light-theme .sidebar {
+  background-color: var(--sidebar-background);
+}
+
+.light-theme .task-card {
+  background-color: var(--card-background);
+  color: var(--card-text);
+}
+
+    :root {             /*dark theme*/
+      --bg: #18181b;
+      --text-color: #f9fafb;
+      --sidebar-bg: #1f2937;
+      --sidebar-active: #6366f1;
+      --column-bg: #2727a2;
+      --card-bg: #333;
+      --card-text: #e5e7eb;
+      --shadow: rgba(0,0,0,.25);
+    }
+
+.dark-theme body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.dark-theme .sidebar {
+  background-color: var(--sidebar-background);
+}
+
+.dark-theme .task-card {
+  background-color: var(--card-background);
+  color: var(--card-text);
+}
 /* Toolbar container */
     .toolbar {
       margin-top: 400px;
