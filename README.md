@@ -86,3 +86,72 @@ By studying the JSL05 solution, you will:
 ## License
 
 Provided for **educational purposes only**.
+
+# 🗂 My Personal Kanban Board
+
+Hey! This is my Kanban task management app project. It’s dynamic, mobile-friendly, and includes a dark/light mode toggle. While I didn’t implement all stretch features, the app allows task creation, editing, deletion, and persistent storage with a responsive sidebar..
+
+---
+
+## 🎯 What I Built
+
+### 🟣 Deployment & Hosting
+- I prepared the app files following best practices for deployment.
+- Deployed it on **Netlify**, so you can access it live.
+- Everything works online — creating, editing, deleting tasks, local storage persistence, and sorting all function in real-time.
+
+### 🔵 Fetching Tasks & Loading State
+- Tasks are fetched from [this API](https://jsl-kanban-api.vercel.app/) instead of being hard-coded.
+- While tasks load, a **loading message** shows so users know data is coming.
+- If the API fails, an error message appears and fallback tasks from **localStorage** are shown.
+
+### 🟢 Persistent Storage
+- All tasks are saved in **localStorage**, so refreshing the page keeps your tasks intact.
+- On startup, tasks are loaded and displayed in **To Do, Doing, and Done** columns.
+
+### 🟠 Task Editing & Deletion
+- I created a modal where users can edit task title, description, and status.
+- Save updates immediately reflect on the board and in localStorage.
+- Deletion asks for confirmation before removing a task from the board and storage.
+
+### 🟡 Sidebar & Navigation
+- The sidebar contains all navigation elements like in my Figma design.
+- It’s **toggleable**, so you can hide it or show it as you prefer.
+- On mobile, the sidebar works like a menu from the top, just like the desktop version.
+- Theme toggle switch is included in both mobile and desktop sidebar.
+
+### 🔴 Dark/Light Mode
+- I implemented a theme toggle.
+- Switching themes updates **everything**, including task cards, headers, and even the logo.
+- Dark mode is fully styled for readability and contrast.
+
+### 🟣 Stretch Goal: Priority (Optional)
+- Users can set **High, Medium, Low priority** on tasks.
+- Priority is shown on each card, saved in localStorage, and immediately reflected in the UI.
+- Tasks are sorted by priority automatically within each column.
+
+### ⚪ How I Wrote My Code
+- The code is split into modules: localStorage handling, task rendering, and modal management.
+- Everything is clearly named and documented so I can maintain or expand the app easily.
+
+---
+
+## 🌟 Outcome
+- A working, live Kanban board.
+- Fully responsive and mobile-friendly.
+- Dynamic task fetching, editing, deletion, and persistent storage.
+- Theme toggle with dark/light modes.
+- Deployed to Netlify for anyone to access.
+
+---
+
+## 🔗 Check It Out
+[https://lerato-kanban.netlify.app/]
+
+---
+
+## 🛠 Tech Stack
+- HTML, CSS, JavaScript
+- Fetch API for live tasks
+- LocalStorage for persistence
+- Netlify for hosting
