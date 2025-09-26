@@ -192,6 +192,51 @@ body.dark .btn-status .icon {
   background: #396B5E; /* example color in dark mode */
 }
   
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-switch .slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: #396B5E; /* dark mode active color */
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
 /* ===============
    Main Layout
 ================ */
