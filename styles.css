@@ -142,64 +142,53 @@ h4 {
   gap: 12px;
 }
 
-/* Light Theme */
-:root {
-  --bg: #f8f9fc;
-  --text-color: #1a1a11;
-  --sidebar-bg: #ffffff;
-  --column-bg: #ffffff;
-  --card-bg: #fdfdfd;
-  --card-text: #333;
-  --shadow: rgba(0,0,0,.25);
-}
+    :root {             /*light theme*/
+      --bg: #f8f9fc;
+      --text-color: #1a1a11;
+      --sidebar-bg: #ffffff;
+      --column-bg: #ffffff;
+      --card-bg: #fdfdfd;
+      --card-text: #333;
+      --shadow: rgba(0,0,0,.25);
+    }
 
-body.light-theme {
+.light-theme body {
   background-color: var(--bg);
   color: var(--text-color);
 }
 
-body.light-theme .sidebar {
+.light-theme .sidebar {
   background-color: var(--sidebar-bg);
 }
 
-body.light-theme .column-div {
-  background-color: var(--column-bg);
-}
-
-body.light-theme .task-card {
+.light-theme .task-card {
   background-color: var(--card-bg);
   color: var(--card-text);
 }
 
-/* Dark Theme */
-:root {
-  --bg-dark: #1e1e2f;
-  --text-color-dark: #f0f0f0;
-  --sidebar-bg-dark: #2b2b3c;
-  --column-bg-dark: #2b2b3c;
-  --card-bg-dark: #333344;
-  --card-text-dark: #e0e0e0;
-  --shadow-dark: rgba(0,0,0,.25);
+    :root {             /*dark theme*/
+      --bg: #1e1e2f;
+      --text-color: #f0f0f0;
+      --sidebar-bg: #2b2b3c;
+      --column-bg: #2b2b3c;
+      --card-bg: #333344;
+      --card-text: #e0e0e0;
+      --shadow: rgba(0,0,0,.25);
+    }
+
+.dark-theme body {
+  background-color: var(--bg);
+  color: var(--text-color);
 }
 
-body.dark-theme {
-  background-color: var(--bg-dark);
-  color: var(--text-color-dark);
+.dark-theme .sidebar {
+  background-color: var(--sidebar-bg);
 }
 
-body.dark-theme .sidebar {
-  background-color: var(--sidebar-bg-dark);
+.dark-theme .task-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
 }
-
-body.dark-theme .column-div {
-  background-color: var(--column-bg-dark);
-}
-
-body.dark-theme .task-card {
-  background-color: var(--card-bg-dark);
-  color: var(--card-text-dark);
-}
-
 /* Toolbar container */
     .toolbar {
       margin-top: 400px;
