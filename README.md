@@ -147,6 +147,7 @@ Hey! This is my Kanban task management app project. It’s dynamic, mobile-frien
 
 ## 🔗 Check It Out
 [https://lerato-kanban.netlify.app/]
+[https://app.screencastify.com/watch/NKoZ1ENLM9m9MlQXxliC] a video link
 
 ---
 
