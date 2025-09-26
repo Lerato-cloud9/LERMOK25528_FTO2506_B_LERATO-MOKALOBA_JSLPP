@@ -37,3 +37,19 @@ document.addEventListener("DOMContentLoaded", () => {
     showBtn.style.display = "none";     // hide outside button
   });
 });
+
+// Theme toggle
+const themeToggle = document.querySelector(".btn-theme-toggle"); //Select the theme toggle switch
+
+if (localStorage.getItem("theme") === "dark") {     // Initialize theme based on user's previous preference stored in localStorage
+  document.body.classList.add("dark");              // Apply dark mode class
+  themeToggle.checked = true;                       // Set toggle to "on"
+}
+
+themeToggle.addEventListener("change", () => {      // Listen for changes to the toggle switch
+  document.body.classList.toggle("dark");           // Toggle the 'dark' class on the <body> to switch theme
+  localStorage.setItem(                             // Save the current theme preference to localStorage
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+}); 
