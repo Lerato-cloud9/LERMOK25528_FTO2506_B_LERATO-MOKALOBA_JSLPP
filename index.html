@@ -22,6 +22,7 @@
 
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
     <nav class="side-bar" id="side-bar-div">
+      <div class="sidebar-overlay"></div>
       <div id="side-logo-div">
         <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
       </div>
@@ -79,6 +80,11 @@
 
       <div class="container">
         <main class="card-column-main">
+     <!-- Loader shown during fetch -->
+      <div id="tasks-loader" style="display:none; text-align:center; margin:20px; width:100%;">
+        ⏳ Loading tasks...
+      </div>
+
         <div id="status-message" style="margin:10px; font-weight:bold; color:#333;"></div>    <!--status-message div to display API loading and error messages-->
          
           <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
